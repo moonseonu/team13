@@ -23,7 +23,8 @@ public class move_mob : MonoBehaviour
     void Start()
     {
         _transform = this.gameObject.GetComponent<Transform>();
-        playerTransform = GameObject.FindWithTag("Player").getComponent<Transform>();
+     //   playerTransform = GameObject.FindWithTag("Player").getComponent<Transform>();
+     //이부분 오류떠서 일단 주석처리했음
         nvAgent = this.gameObject.GetComponent<NavMeshAgent>();
         _animator = this.gameObject.GetComponent<Animator>();
 
