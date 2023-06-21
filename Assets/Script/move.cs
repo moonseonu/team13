@@ -66,7 +66,7 @@ public class move : MonoBehaviour
 
     IEnumerator Initialize()
     {
-        if ((estimateElevation)(floatHeight > 0.0f))
+        if ((estimateElevation)&&(floatHeight > 0.0f))
         {
             estGravityTimer = Time.time;
         }
@@ -91,7 +91,7 @@ public class move : MonoBehaviour
 
     void AIFunctionality()
     {
-        if ((!target)(requireTarget))
+        if ((!target)&&(requireTarget))
         {
             return;
         }
@@ -117,17 +117,17 @@ public class move : MonoBehaviour
                 return;
             }
 
-            if ((distance > attackRange)(!runAway)(!runTo))
+            if ((distance > attackRange)&&(!runAway)&&(!runTo))
             {
                 enemyCanAttack = false;
                 MoveTowards(moveToward);
             }
-            else if ((smoothAttackRangeBuffer)(distance > attackRange + 5.0f))
+            else if ((smoothAttackRangeBuffer)&&(distance > attackRange + 5.0f))
             {
                 smoothAttackRangeBuffer = false;
                 WalkNewPath();
             }
-            else if ((runAway || runTo)(distance > runDistance)(!executeBufferState))
+            else if ((runAway || runTo)&&(distance > runDistance)&&(!executeBufferState))
             {
                 if (monitorRunTo)
                 {
@@ -142,7 +142,7 @@ public class move : MonoBehaviour
                     MoveTowards(moveToward);
                 }
             }
-            else if ((runAway || runTo)(distance < runDistance)(!executeBufferState))
+            else if ((runAway || runTo)&&(distance < runDistance)&&(!executeBufferState))
             {
                 enemyCanAttack = false;
                 if (!monitorRunTo)
@@ -159,7 +159,7 @@ public class move : MonoBehaviour
                     MoveTowards(moveToward);
                 }
             }
-            else if (executeBufferState((runAway)(distance < runBufferDistance)) || ((runTo)(distance > runBufferDistance)))
+            else if (executeBufferState&&((runAway)&&(distance < runBufferDistance)) || ((runTo)&&(distance > runBufferDistance)))
             {
                 if (runAway)
                 {
@@ -170,13 +170,13 @@ public class move : MonoBehaviour
                     MoveTowards(moveToward);
                 }
             }
-            else if ((executeBufferState)(((runAway)(distance > runBufferDistance)) || ((runTo)(distance < runBufferDistance))))
+            else if ((executeBufferState)&&(((runAway)&&(distance > runBufferDistance)) || ((runTo)&&(distance < runBufferDistance))))
             {
                 monitorRunTo = true;
                 executeBufferState = false;
             }
 
-            if ((distance < attackRange) || ((!runAway!runTo)  (distance < runDistance))) {
+            if ((distance < attackRange) || ((!runAway&&!runTo) && (distance < runDistance))) {
                 if (runAway)
                 {
                     smoothAttackRangeBuffer = true;
@@ -188,7 +188,7 @@ public class move : MonoBehaviour
             }
 
         }
-        else if ((playerHasBeenSeen)(!targetIsOutOfSight)(go))
+        else if ((playerHasBeenSeen)&&(!targetIsOutOfSight)&&(go))
         {
             lostPlayerTimer = Time.time + huntingTimer;
             StartCoroutine(HuntDownTarget(lastVisTargetPos));
@@ -197,7 +197,7 @@ public class move : MonoBehaviour
         {
             Patrol();
         }
-        else if (((!playerHasBeenSeen)(go))((moveableRadius == 0) || (distance < moveableRadius)))
+        else if (((!playerHasBeenSeen)&&(go))&&((moveableRadius == 0) || (distance < moveableRadius)))
         {
             WalkNewPath();
         }
@@ -222,7 +222,7 @@ public class move : MonoBehaviour
 
     bool TargetIsInSight()
     {
-        if ((moveableRadius > 0)(Vector3.Distance(transform.position, target.position) > moveableRadius))
+        if ((moveableRadius > 0)&&(Vector3.Distance(transform.position, target.position) > moveableRadius))
         {
             go = false;
         }
@@ -231,7 +231,7 @@ public class move : MonoBehaviour
             go = true;
         }
 
-        if ((visualRadius > 0)(Vector3.Distance(transform.position, target.position) > visualRadius))
+        if ((visualRadius > 0)&&(Vector3.Distance(transform.position, target.position) > visualRadius))
         {
             return false;
         }
@@ -239,7 +239,7 @@ public class move : MonoBehaviour
         RaycastHit sight;
         if (Physics.Linecast(transform.position, target.position, out sight))
         {
-            if (!playerHasBeenSeen  sight.transform == target) {
+            if (!playerHasBeenSeen && sight.transform == target) {
                 playerHasBeenSeen = true;
             }
             return sight.transform == target;
@@ -398,7 +398,7 @@ public class move : MonoBehaviour
         speedModifier = Mathf.Clamp01(speedModifier);
 
         direction = forward * speed * speedModifier;
-        if ((!canFly)(floatHeight <= 0.0f))
+        if ((!canFly)&&(floatHeight <= 0.0f))
         {
             direction.y -= gravity;
         }
@@ -410,9 +410,9 @@ public class move : MonoBehaviour
     {
         Vector3 direction = new Vector3(0, 0, 0);
 
-        if ((!canFly)(floatHeight > 0.0f))
+        if ((!canFly)&&(floatHeight > 0.0f))
         {
-            if ((estimateElevation)(estRayTimer > 0.0f))
+            if ((estimateElevation)&&(estRayTimer > 0.0f))
             {
                 if (Time.time > estGravityTimer)
                 {
@@ -475,7 +475,7 @@ public class move : MonoBehaviour
         }
         else
         {
-            if ((estimateElevation)(estRayTimer > 0.0f))
+            if ((estimateElevation)&&(estRayTimer > 0.0f))
             {
                 if (Time.time > estGravityTimer)
                 {
@@ -532,7 +532,7 @@ public class move : MonoBehaviour
             }
         }
 
-        if ((!estimateElevation) || ((estimateElevation)(estHeight >= 0.0f)))
+        if ((!estimateElevation) || ((estimateElevation)&&(estHeight >= 0.0f)))
         {
             characterController.Move(direction * Time.deltaTime);
         }
