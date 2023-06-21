@@ -26,11 +26,11 @@ public class move_baby : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (roomnum < 2.0f)
+        if (roomnum < 2.0f || special_item < 2.0f)
             transform.position = Vector3.MoveTowards(gameObject.transform.position, roomPosition_1.transform.position, 0.1f);
-        else if (roomnum >= 2.0f && roomnum < 3.0f)
+        else if ((roomnum >= 2.0f && roomnum < 3.0f) || (special_item >= 2.0f && special_item < 3.0f))
             transform.position = Vector3.MoveTowards(gameObject.transform.position, roomPosition_2.transform.position, 0.1f);
-        else if (roomnum >= 3.0f && roomnum <= 4.0f) // ³ªÁß¿¡ ¹æ ´õ ´Ã¸®¸é ºÎµîÈ£ ¹Ù²ã¾ßµÊ
+        else if ((roomnum >= 3.0f && roomnum <= 4.0f) || (special_item >= 3.0f && special_item <= 4.0f)) // ³ªÁß¿¡ ¹æ ´õ ´Ã¸®¸é ºÎµîÈ£ ¹Ù²ã¾ßµÊ
             transform.position = Vector3.MoveTowards(gameObject.transform.position, roomPosition_3.transform.position, 0.1f);
     }
 }
