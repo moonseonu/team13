@@ -1,6 +1,8 @@
-vusing System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class LoadingSceneManager : MonoBehaviour
 {
@@ -28,7 +30,7 @@ public class LoadingSceneManager : MonoBehaviour
         while(!op.isDone)
         {
             yield return null;
-            timer += timer.deltaTime;
+            timer += Time.deltaTime;
             if(op.progress < 0.9f)
             {
                 progressBar.fillAmount = Mathf.Lerp(progressBar.fillAmount, op.progress, timer);
