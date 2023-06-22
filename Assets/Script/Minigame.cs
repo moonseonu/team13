@@ -34,10 +34,7 @@ public class Minigame : MonoBehaviour, IDragHandler, IEndDragHandler, IBeginDrag
             Operator.isOperate = true;
             isClear = false;
         }
-        else
-        {
-            gameObject.transform.position = startPos;
-        }
+        gameObject.transform.position = startPos;
     }
     private void OnTriggerStay2D(Collider2D collision)
     {

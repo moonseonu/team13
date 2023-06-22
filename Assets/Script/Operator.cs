@@ -12,10 +12,12 @@ public class Operator : MonoBehaviour
     public GameObject miniGame;
     private GameObject target;
     public static bool isOperate;
+    private int coolDown;
     
     private void Start()
     {
         isOperate = false;
+        coolDown = 0;
         if(gameObject == GameObject.Find("Room1"))
         {
             type = roomType.type1;
@@ -27,7 +29,7 @@ public class Operator : MonoBehaviour
         if (Input.GetMouseButtonUp(0))
         {
             CastRay();
-            if(target == GameObject.Find("Room1"))
+            if(target == GameObject.Find("Room1") && coolDown == 0)
             {
                 Debug.Log("Operating room1");
                 miniGame.SetActive(true);
@@ -37,6 +39,7 @@ public class Operator : MonoBehaviour
         {
             miniGame.SetActive(false);
             isOperate = false;
+            coolDown = 3000;
             switch (type) 
             {
                 case roomType.type1:
@@ -44,6 +47,11 @@ public class Operator : MonoBehaviour
                 break;
             }
         }
+        if(coolDown != 0)
+        {
+            coolDown -= 1;
+        }
+        Debug.Log(coolDown);
     }
 
     void CastRay()
