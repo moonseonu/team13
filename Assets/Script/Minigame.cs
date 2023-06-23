@@ -6,7 +6,6 @@ public class Minigame : MonoBehaviour, IDragHandler, IEndDragHandler, IBeginDrag
 {
     Vector3 startPos;
     private bool  isDraw, isClear;
-
     private void Awake()
     {
         isClear = false;

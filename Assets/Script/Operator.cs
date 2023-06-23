@@ -6,19 +6,18 @@ public class Operator : MonoBehaviour
 {
     public enum roomType { type1, type2, type3}
     roomType type;
-    Vector3 room1Pos, mousePos;
     Ray2D ray;
     RaycastHit2D hit;
     public GameObject miniGame;
     private GameObject target;
     public static bool isOperate;
-    private int coolDown;
+    public float iscoolDown;
     
     private void Start()
     {
         isOperate = false;
-        coolDown = 0;
-        if(gameObject == GameObject.Find("Room1"))
+        iscoolDown = 0;
+        if(gameObject == GameObject.FindWithTag("type1"))
         {
             type = roomType.type1;
         }
@@ -29,9 +28,8 @@ public class Operator : MonoBehaviour
         if (Input.GetMouseButtonUp(0))
         {
             CastRay();
-            if(target == GameObject.Find("Room1") && coolDown == 0)
+            if(target == this.gameObject && iscoolDown == 0)
             {
-                Debug.Log("Operating room1");
                 miniGame.SetActive(true);
             }
         }
@@ -39,7 +37,7 @@ public class Operator : MonoBehaviour
         {
             miniGame.SetActive(false);
             isOperate = false;
-            coolDown = 3000;
+            iscoolDown = 30f;
             switch (type) 
             {
                 case roomType.type1:
@@ -47,11 +45,11 @@ public class Operator : MonoBehaviour
                 break;
             }
         }
-        if(coolDown != 0)
+        if(iscoolDown != 0)
         {
-            coolDown -= 1;
+            iscoolDown -= Time.deltaTime;
         }
-        Debug.Log(coolDown);
+        Debug.Log(iscoolDown);
     }
 
     void CastRay()

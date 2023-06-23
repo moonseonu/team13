@@ -102,8 +102,8 @@ public class move : MonoBehaviour
         }
 
         lastVisTargetPos = target.position;
-        Vector2 moveToward = lastVisTargetPos - transform.position;
-        Vector2 moveAway = transform.position - lastVisTargetPos;
+        Vector2 moveToward = lastVisTargetPos - (Vector2)transform.position;
+        Vector2 moveAway = (Vector2)transform.position - lastVisTargetPos;
         float distance = Vector2.Distance(transform.position, target.position);
 
         if (go)
@@ -261,7 +261,7 @@ public class move : MonoBehaviour
         targetIsOutOfSight = true;
         while (targetIsOutOfSight)
         {
-            Vector2 moveToward = position - transform.position;
+            Vector2 moveToward = position - (Vector2)transform.position;
             MoveTowards(moveToward);
 
             if (TargetIsInSight())
@@ -288,7 +288,7 @@ public class move : MonoBehaviour
             return;
         }
         Vector2 destination = CurrentPath();
-        Vector2 moveToward = destination - transform.position;
+        Vector2 moveToward = destination - (Vector2)transform.position;
         float distance = Vector2.Distance(transform.position, destination);
         MoveTowards(moveToward);
         if (distance <= 1.5f + floatHeight)
@@ -360,11 +360,11 @@ public class move : MonoBehaviour
             walkInRandomDirection = true;
             if (!playerHasBeenSeen)
             {
-                randomDirection = new Vector2(Random.Range(-0.15f, 0.15f), 0, Random.Range(-0.15f, 0.15f));
+                randomDirection = new Vector3(Random.Range(-0.15f, 0.15f), 0, Random.Range(-0.15f, 0.15f));
             }
             else
             {
-                randomDirection = new Vector2(Random.Range(-0.5f, 0.5f), 0, Random.Range(-0.5f, 0.5f));
+                randomDirection = new Vector3(Random.Range(-0.5f, 0.5f), 0, Random.Range(-0.5f, 0.5f));
             }
             randomDirectionTimer = Time.time;
         }
@@ -396,9 +396,9 @@ public class move : MonoBehaviour
         }
 
         transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), rotationSpeed * Time.deltaTime);
-        transform.eulerAngles = new Vector2(0, transform.eulerAngles.y, 0);
+        transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
 
-        Vector2 forward = transform.TransformDirection(Vector2.forward);
+        Vector2 forward = transform.TransformDirection(Vector3.forward);
         float speedModifier = Vector2.Dot(forward, direction.normalized);
         speedModifier = Mathf.Clamp01(speedModifier);
 
@@ -413,7 +413,7 @@ public class move : MonoBehaviour
 
     void MonitorGravity()
     {
-        Vector2 direction = new Vector2(0, 0, 0);
+        Vector2 direction = new Vector3(0, 0, 0);
 
         if ((!canFly)&&(floatHeight > 0.0f))
         {
