@@ -38,7 +38,7 @@ public class move_baby : MonoBehaviour
         {
             transform.position = Vector2.MoveTowards(gameObject.transform.position, roomPosition_1.transform.position, speed + Time.deltaTime); // 2D공간에 맞게 벡터3 에서 벡터 2로 변경
 
-            if (Vector2.Distance(transform.position, roomPosition_1.position) < 0.2)
+            if (Vector2.Distance(transform.position, roomPosition_1.transform.position) < 0.2)
             {
                 if(waitTime <= 0)
                 {
@@ -56,7 +56,7 @@ public class move_baby : MonoBehaviour
         {
             transform.position = Vector2.MoveTowards(gameObject.transform.position, roomPosition_2.transform.position, speed + Time.deltaTime);
 
-            if (Vector2.Distance(transform.position, roomPosition_2.position) < 0.2)
+            if (Vector2.Distance(transform.position, roomPosition_2.transform.position) < 0.2)
             {
                 if (waitTime <= 0)
                 {
@@ -74,7 +74,7 @@ public class move_baby : MonoBehaviour
         {
             transform.position = Vector2.MoveTowards(gameObject.transform.position, roomPosition_3.transform.position, speed + Time.deltaTime);
 
-            if (Vector2.Distance(transform.position, roomPosition_3.position) < 0.2)
+            if (Vector2.Distance(transform.position, roomPosition_3.transform.position) < 0.2)
             {
                 if (waitTime <= 0)
                 {
@@ -96,7 +96,7 @@ public class move_baby : MonoBehaviour
         {
             transform.position = Vector2.MoveTowards(gameObject.transform.position, roomPosition_1.transform.position, speed + Time.deltaTime); // 2D공간에 맞게 벡터3 에서 벡터 2로 변경
 
-            if (Vector2.Distance(transform.position, roomPosition_1.position) < 0.2)
+            if (Vector2.Distance(transform.position, roomPosition_1.transform.position) < 0.2)
             {
                 if (waitTime <= 0)
                 {
@@ -114,7 +114,7 @@ public class move_baby : MonoBehaviour
         {
             transform.position = Vector2.MoveTowards(gameObject.transform.position, roomPosition_2.transform.position, speed + Time.deltaTime);
 
-            if (Vector2.Distance(transform.position, roomPosition_2.position) < 0.2)
+            if (Vector2.Distance(transform.position, roomPosition_2.transform.position) < 0.2)
             {
                 if (waitTime <= 0)
                 {
@@ -132,7 +132,7 @@ public class move_baby : MonoBehaviour
         {
             transform.position = Vector2.MoveTowards(gameObject.transform.position, roomPosition_3.transform.position, speed + Time.deltaTime);
 
-            if (Vector2.Distance(transform.position, roomPosition_3.position) < 0.2)
+            if (Vector2.Distance(transform.position, roomPosition_3.transform.position) < 0.2)
             {
                 if (waitTime <= 0)
                 {
@@ -159,7 +159,7 @@ public class move_baby : MonoBehaviour
             {
                 special_item = Random.Range(1.0f, 20.0f); // 범위를 방 개수의 5배로 해서 게임 시작할때부터 템이 나올수는 있으나 확률이 적게끔 << 범위 더늘려도 상관은없긴함
 
-                if (special_item >= 1.0f %% special_item <= 4.0f) // 최대 범위는 방 개수만큼 늘리면 됨
+                if (special_item >= 1.0f && special_item <= 4.0f) // 최대 범위는 방 개수만큼 늘리면 됨
                 {
                     isspecial_time = true;
                 }
