@@ -6,6 +6,13 @@ using UnityEngine.UI;
 
 public class LoadingSceneManager : MonoBehaviour
 {
+    /*
+     * **********************************
+     * 다른 코드에서 호출할 때
+     * LoadingSceneManager.LoadScene(넘길 씬 이름);
+     * 쓰면 될거임
+     * **********************************
+     */
     public static string nextScene;
     [SerializeField] Image progressBar;
 

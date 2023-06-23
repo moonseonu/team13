@@ -3,7 +3,12 @@ using System.Collections;
 
 public class move : MonoBehaviour
 {
-
+    /******************************************************
+     * 만약에 이 코드 안되면
+     * Vector2로 되어있는거 전부 다 Vector3로 바꾸고
+     * z좌표만 0으로 고정시키면 될거임
+     * ****************************************************
+     */
     
     public bool on = true; 
     public bool canFly = false; 
@@ -35,7 +40,7 @@ public class move : MonoBehaviour
 
     private bool initialGo = false;
     private bool go = true;
-    private Vector3 lastVisTargetPos;
+    private Vector2 lastVisTargetPos;
     CharacterController characterController;
     private bool playerHasBeenSeen = false;
     private bool enemyCanAttack = false;
@@ -45,7 +50,7 @@ public class move : MonoBehaviour
     private float lastShotFired;
     private float lostPlayerTimer;
     private bool targetIsOutOfSight;
-    private Vector3 randomDirection;
+    private Vector2 randomDirection;
     private float randomDirectionTimer;
     private float gravity = 20.0f;
     private float antigravity = 2.0f;
@@ -97,9 +102,9 @@ public class move : MonoBehaviour
         }
 
         lastVisTargetPos = target.position;
-        Vector3 moveToward = lastVisTargetPos - transform.position;
-        Vector3 moveAway = transform.position - lastVisTargetPos;
-        float distance = Vector3.Distance(transform.position, target.position);
+        Vector2 moveToward = lastVisTargetPos - transform.position;
+        Vector2 moveAway = transform.position - lastVisTargetPos;
+        float distance = Vector2.Distance(transform.position, target.position);
 
         if (go)
         {
@@ -222,7 +227,7 @@ public class move : MonoBehaviour
 
     bool TargetIsInSight()
     {
-        if ((moveableRadius > 0)&&(Vector3.Distance(transform.position, target.position) > moveableRadius))
+        if ((moveableRadius > 0)&&(Vector2.Distance(transform.position, target.position) > moveableRadius))
         {
             go = false;
         }
@@ -231,7 +236,7 @@ public class move : MonoBehaviour
             go = true;
         }
 
-        if ((visualRadius > 0)&&(Vector3.Distance(transform.position, target.position) > visualRadius))
+        if ((visualRadius > 0)&&(Vector2.Distance(transform.position, target.position) > visualRadius))
         {
             return false;
         }
@@ -251,12 +256,12 @@ public class move : MonoBehaviour
     }
 
 
-    IEnumerator HuntDownTarget(Vector3 position)
+    IEnumerator HuntDownTarget(Vector2 position)
     {
         targetIsOutOfSight = true;
         while (targetIsOutOfSight)
         {
-            Vector3 moveToward = position - transform.position;
+            Vector2 moveToward = position - transform.position;
             MoveTowards(moveToward);
 
             if (TargetIsInSight())
@@ -282,9 +287,9 @@ public class move : MonoBehaviour
         {
             return;
         }
-        Vector3 destination = CurrentPath();
-        Vector3 moveToward = destination - transform.position;
-        float distance = Vector3.Distance(transform.position, destination);
+        Vector2 destination = CurrentPath();
+        Vector2 moveToward = destination - transform.position;
+        float distance = Vector2.Distance(transform.position, destination);
         MoveTowards(moveToward);
         if (distance <= 1.5f + floatHeight)
         {
@@ -312,7 +317,7 @@ public class move : MonoBehaviour
     }
 
 
-    Vector3 CurrentPath()
+    Vector2 CurrentPath()
     {
         return waypoints[wpPatrol].position;
     }
@@ -355,11 +360,11 @@ public class move : MonoBehaviour
             walkInRandomDirection = true;
             if (!playerHasBeenSeen)
             {
-                randomDirection = new Vector3(Random.Range(-0.15f, 0.15f), 0, Random.Range(-0.15f, 0.15f));
+                randomDirection = new Vector2(Random.Range(-0.15f, 0.15f), 0, Random.Range(-0.15f, 0.15f));
             }
             else
             {
-                randomDirection = new Vector3(Random.Range(-0.5f, 0.5f), 0, Random.Range(-0.5f, 0.5f));
+                randomDirection = new Vector2(Random.Range(-0.5f, 0.5f), 0, Random.Range(-0.5f, 0.5f));
             }
             randomDirectionTimer = Time.time;
         }
@@ -375,7 +380,7 @@ public class move : MonoBehaviour
     }
 
 
-    void MoveTowards(Vector3 direction)
+    void MoveTowards(Vector2 direction)
     {
         direction.y = 0;
         int speed = walkSpeed;
@@ -391,10 +396,10 @@ public class move : MonoBehaviour
         }
 
         transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), rotationSpeed * Time.deltaTime);
-        transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
+        transform.eulerAngles = new Vector2(0, transform.eulerAngles.y, 0);
 
-        Vector3 forward = transform.TransformDirection(Vector3.forward);
-        float speedModifier = Vector3.Dot(forward, direction.normalized);
+        Vector2 forward = transform.TransformDirection(Vector2.forward);
+        float speedModifier = Vector2.Dot(forward, direction.normalized);
         speedModifier = Mathf.Clamp01(speedModifier);
 
         direction = forward * speed * speedModifier;
@@ -408,7 +413,7 @@ public class move : MonoBehaviour
 
     void MonitorGravity()
     {
-        Vector3 direction = new Vector3(0, 0, 0);
+        Vector2 direction = new Vector2(0, 0, 0);
 
         if ((!canFly)&&(floatHeight > 0.0f))
         {
@@ -417,7 +422,7 @@ public class move : MonoBehaviour
                 if (Time.time > estGravityTimer)
                 {
                     RaycastHit floatCheck;
-                    if (Physics.Raycast(transform.position, -Vector3.up, out floatCheck))
+                    if (Physics.Raycast(transform.position, -Vector2.up, out floatCheck))
                     {
                         if (floatCheck.distance < floatHeight - 0.5f)
                         {
@@ -460,7 +465,7 @@ public class move : MonoBehaviour
             else
             {
                 RaycastHit floatCheck;
-                if (Physics.Raycast(transform.position, -Vector3.up, out floatCheck, floatHeight + 1.0f))
+                if (Physics.Raycast(transform.position, -Vector2.up, out floatCheck, floatHeight + 1.0f))
                 {
                     if (floatCheck.distance < floatHeight)
                     {
@@ -480,7 +485,7 @@ public class move : MonoBehaviour
                 if (Time.time > estGravityTimer)
                 {
                     RaycastHit floatCheck;
-                    if (Physics.Raycast(transform.position, -Vector3.up, out floatCheck))
+                    if (Physics.Raycast(transform.position, -Vector2.up, out floatCheck))
                     {
                         if (floatCheck.distance < floatHeight - 0.5f)
                         {
@@ -518,7 +523,7 @@ public class move : MonoBehaviour
             else
             {
                 RaycastHit floatCheck;
-                if (Physics.Raycast(transform.position, -Vector3.up, out floatCheck))
+                if (Physics.Raycast(transform.position, -Vector2.up, out floatCheck))
                 {
                     if (floatCheck.distance < floatHeight - 0.5f)
                     {
