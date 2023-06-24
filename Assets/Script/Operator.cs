@@ -14,7 +14,7 @@ public class Operator : Mapping
     public float iscoolDown;
     public static GameObject minigameprefab;
     private bool isminigameStart;
-    public GameObject[] signType = new GameObject[5];
+    public GameObject[] signType = new GameObject[4];
 
 
     private void Start()
@@ -37,8 +37,6 @@ public class Operator : Mapping
     }
     void Update()
     {
-        if (iscoolDown > 0)
-            Debug.Log(iscoolDown);
         if (!isOperate)
         {
             if (Input.GetMouseButtonUp(0))
@@ -48,7 +46,7 @@ public class Operator : Mapping
                 {
                     minigameprefab = Instantiate(miniGame, GameObject.Find("map").transform);
                     isminigameStart = true;
-                    int random = Random.Range(0, 5);
+                    int random = Random.Range(0, 4);
                     GameObject sign = Instantiate(signType[random], minigameprefab.transform);
                 }
             }

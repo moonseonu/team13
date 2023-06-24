@@ -320,7 +320,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 476608464}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.75, y: 2.1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 2}
   m_LocalScale: {x: 0.3, y: 0.3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -358,6 +358,8 @@ GameObject:
   m_Component:
   - component: {fileID: 558157159}
   - component: {fileID: 558157160}
+  - component: {fileID: 558157162}
+  - component: {fileID: 558157161}
   m_Layer: 0
   m_Name: monster brief
   m_TagString: Untagged
@@ -377,8 +379,8 @@ Transform:
   m_LocalScale: {x: 0.1, y: 0.1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1333740532}
-  m_RootOrder: 0
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &558157160
 SpriteRenderer:
@@ -432,6 +434,62 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &558157161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 558157158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2b490c3055148c4e96ec7d1a0fd92a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  on: 1
+  canFly: 0
+  floatHeight: 0
+  runAway: 0
+  runTo: 0
+  runDistance: 25
+  runBufferDistance: 50
+  walkSpeed: 10
+  runSpeed: 15
+  randomSpeed: 10
+  rotationSpeed: 20
+  visualRadius: 100
+  moveableRadius: 200
+  attackRange: 10
+  attackTime: 0.5
+  useWaypoints: 0
+  reversePatrol: 1
+  waypoints: []
+  pauseAtWaypoints: 0
+  pauseMin: 1
+  pauseMax: 3
+  huntingTimer: 5
+  estimateElevation: 0
+  estRayTimer: 1
+  requireTarget: 1
+  target: {fileID: 476608468}
+--- !u!143 &558157162
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 558157158}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Height: 7.7
+  m_Radius: 2.2
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &687351200
 GameObject:
   m_ObjectHideFlags: 0
@@ -541,7 +599,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 986289231}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.933856, y: 1.2451252, z: 1}
+  m_LocalPosition: {x: 0.933856, y: 1.2451252, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -567,93 +625,3 @@ MonoBehaviour:
   - {fileID: 7935455975561756944, guid: 330dede38e6cff04eb89acd547dbdfd9, type: 3}
   - {fileID: 8946763285325228474, guid: 338e5fcf03dfa1e40bf1f9eafd36dda9, type: 3}
   - {fileID: 1415762320611264137, guid: 07f7a97752d2f3b4d9458940bd74e12d, type: 3}
---- !u!1 &1333740531
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1333740532}
-  - component: {fileID: 1333740533}
-  - component: {fileID: 1333740534}
-  m_Layer: 0
-  m_Name: Enemy
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1333740532
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1333740531}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 558157159}
-  m_Father: {fileID: 0}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1333740533
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1333740531}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2b490c3055148c4e96ec7d1a0fd92a2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  on: 1
-  canFly: 0
-  floatHeight: 0
-  runAway: 0
-  runTo: 0
-  runDistance: 25
-  runBufferDistance: 50
-  walkSpeed: 10
-  runSpeed: 15
-  randomSpeed: 10
-  rotationSpeed: 20
-  visualRadius: 100
-  moveableRadius: 200
-  attackRange: 10
-  attackTime: 0.5
-  useWaypoints: 0
-  reversePatrol: 1
-  waypoints: []
-  pauseAtWaypoints: 0
-  pauseMin: 1
-  pauseMax: 3
-  huntingTimer: 5
-  estimateElevation: 0
-  estRayTimer: 1
-  requireTarget: 1
-  target: {fileID: 8019942295881922361, guid: cd1b36e0e4f53c34aa295ca9f9277af4, type: 3}
---- !u!143 &1333740534
-CharacterController:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1333740531}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Height: 2
-  m_Radius: 0.5
-  m_SlopeLimit: 45
-  m_StepOffset: 0.3
-  m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0, z: 0}
