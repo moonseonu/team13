@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class Operator : Mapping
 {
@@ -33,6 +34,17 @@ public class Operator : Mapping
         if (gameObject == GameObject.FindWithTag("type3"))
         {
             type = roomType.type3;
+        }
+        for (int i = 0; i < 6; i++)
+        {
+            for (int j = 0; j < 3; j++)
+            {
+                if (this.gameObject.transform.position == room[i, j].transform.position)
+                {
+                    Map[i, j] = 0;
+                }
+                Debug.Log(Map[i, j]);
+            }
         }
     }
     void Update()
@@ -67,6 +79,7 @@ public class Operator : Mapping
         if (iscoolDown != 0)
         {
             iscoolDown -= Time.deltaTime;
+            Debug.Log(gameObject.name + iscoolDown);
         }
     }
 
@@ -78,7 +91,8 @@ public class Operator : Mapping
 
         if (hit.collider != null)
         {
-            target = hit.collider.gameObject;
+            if(EventSystem.current.IsPointerOverGameObject() == false)
+                target = hit.collider.gameObject;
         }
     }
 }
