@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7935455975561756947}
   - component: {fileID: 7935455975561756946}
+  - component: {fileID: 3095001770732244330}
+  - component: {fileID: -1846278054842192816}
   m_Layer: 0
   m_Name: Room4
   m_TagString: type1
@@ -84,3 +86,50 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &3095001770732244330
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7935455975561756944}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
+--- !u!114 &-1846278054842192816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7935455975561756944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a22a4ac08bc58b409e677b7f656793c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  roomNum: []
+  miniGame: {fileID: 1383174703690635304, guid: 3e05e33656622ed418324739db1fed08, type: 3}
+  iscoolDown: 0
+  signType:
+  - {fileID: 1015214225739905386, guid: 0161fd452cf4b6944913849e9d752a57, type: 3}
+  - {fileID: 4989246485367184561, guid: 1298a32040146e14eb968ad6d98cb14e, type: 3}
+  - {fileID: 5889611445564199663, guid: 02d45d4b215f9a345954c25292586a02, type: 3}
+  - {fileID: 6801929934621862579, guid: 99f76ac036678994197b4449a47f1135, type: 3}
+  - {fileID: 6427566264015170006, guid: eeac170481514bd4eaf26f46b07dfb84, type: 3}

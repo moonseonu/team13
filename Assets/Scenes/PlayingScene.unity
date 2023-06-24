@@ -638,7 +638,7 @@ MonoBehaviour:
   estimateElevation: 0
   estRayTimer: 1
   requireTarget: 1
-  target: {fileID: 476608468}
+  target: {fileID: 8019942295881922361, guid: cd1b36e0e4f53c34aa295ca9f9277af4, type: 3}
 --- !u!143 &1333740534
 CharacterController:
   m_ObjectHideFlags: 0

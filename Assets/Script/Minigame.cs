@@ -33,7 +33,7 @@ public class Minigame : MonoBehaviour, IDragHandler, IEndDragHandler, IBeginDrag
             Debug.Log("successing");
             Operator.isOperate = true;
             isClear = false;
-            Destroy(Operator.prefab);
+            Destroy(Operator.minigameprefab);
         }
     }
     private void OnTriggerStay2D(Collider2D collision)
