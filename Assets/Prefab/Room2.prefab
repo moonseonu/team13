@@ -124,5 +124,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a22a4ac08bc58b409e677b7f656793c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  miniGame: {fileID: 0}
+  miniGame: {fileID: 1383174703690635304, guid: 3e05e33656622ed418324739db1fed08, type: 3}
   iscoolDown: 0

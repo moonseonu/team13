@@ -12,44 +12,55 @@ public class Operator : MonoBehaviour
     private GameObject target;
     public static bool isOperate;
     public float iscoolDown;
-    
+    private GameObject prefab;
+    private bool isminigameStart;
+
+
     private void Start()
     {
         isOperate = false;
         iscoolDown = 0;
+        isminigameStart = false;
         if(gameObject == GameObject.FindWithTag("type1"))
         {
             type = roomType.type1;
         }
     }
-
+    IEnumerator DestroyPrefab()
+    {
+        yield return new WaitForSeconds(1.0f);
+        Destroy(prefab);
+    }
     void Update()
     {
         if (Input.GetMouseButtonUp(0))
         {
             CastRay();
-            if(target == this.gameObject && iscoolDown == 0)
+            if (target == this.gameObject && iscoolDown == 0 && !isminigameStart)
             {
-                miniGame.SetActive(true);
+                prefab = Instantiate(miniGame, GameObject.Find("map").transform);
+                isminigameStart = true;
             }
         }
         if (isOperate)
         {
-            miniGame.SetActive(false);
-            isOperate = false;
+            StartCoroutine(DestroyPrefab());
+            isminigameStart = false;
             iscoolDown = 30f;
-            switch (type) 
+            isOperate = false;
+            StopCoroutine(DestroyPrefab());
+            switch (type)
             {
                 case roomType.type1:
                     //이쪽에 몹 이동에 관여시킬수 있는 함수 넣으면 될듯
-                break;
+                    break;
             }
+            Debug.Log(isOperate);
         }
-        if(iscoolDown != 0)
+        if (iscoolDown != 0)
         {
             iscoolDown -= Time.deltaTime;
         }
-        Debug.Log(iscoolDown);
     }
 
     void CastRay()

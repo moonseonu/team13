@@ -32,6 +32,7 @@ public class Minigame : MonoBehaviour, IDragHandler, IEndDragHandler, IBeginDrag
             Debug.Log("successing");
             Operator.isOperate = true;
             isClear = false;
+            
         }
         gameObject.transform.position = startPos;
     }
