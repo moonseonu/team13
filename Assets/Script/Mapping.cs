@@ -21,6 +21,7 @@ public class Mapping : MonoBehaviour
 
                 int random = Random.Range(0, 6);
                 room[i, j] = roomNum[random];
+                Map[i, j] = random;
                 Vector3 position = new Vector3(-6f + (i * 2.3f), 2.3f - (j * 2.3f), 0);
                 GameObject prefab = Instantiate(room[i, j], position, Quaternion.identity, GameObject.Find("map").transform);
                 prefab.transform.position = position;

@@ -27,14 +27,14 @@ public class Minigame : MonoBehaviour, IDragHandler, IEndDragHandler, IBeginDrag
 
     public void OnEndDrag(PointerEventData eventData)
     {
+        gameObject.transform.position = startPos;
         if (isClear)
         {
             Debug.Log("successing");
             Operator.isOperate = true;
             isClear = false;
-            
+            Destroy(Operator.prefab);
         }
-        gameObject.transform.position = startPos;
     }
     private void OnTriggerStay2D(Collider2D collision)
     {

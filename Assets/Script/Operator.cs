@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Operator : MonoBehaviour
+public class Operator : Mapping
 {
     public enum roomType { type1, type2, type3}
     roomType type;
@@ -12,7 +12,7 @@ public class Operator : MonoBehaviour
     private GameObject target;
     public static bool isOperate;
     public float iscoolDown;
-    private GameObject prefab;
+    public static GameObject prefab;
     private bool isminigameStart;
 
 
@@ -26,17 +26,14 @@ public class Operator : MonoBehaviour
             type = roomType.type1;
         }
     }
-    IEnumerator DestroyPrefab()
-    {
-        yield return new WaitForSeconds(1.0f);
-        Destroy(prefab);
-    }
     void Update()
     {
+        if(iscoolDown > 0)
+            Debug.Log(iscoolDown);
         if (Input.GetMouseButtonUp(0))
         {
             CastRay();
-            if (target == this.gameObject && iscoolDown == 0 && !isminigameStart)
+            if (target == this.gameObject && iscoolDown <= 0 && !isminigameStart)
             {
                 prefab = Instantiate(miniGame, GameObject.Find("map").transform);
                 isminigameStart = true;
@@ -44,11 +41,9 @@ public class Operator : MonoBehaviour
         }
         if (isOperate)
         {
-            StartCoroutine(DestroyPrefab());
             isminigameStart = false;
-            iscoolDown = 30f;
+            iscoolDown = 10f;
             isOperate = false;
-            StopCoroutine(DestroyPrefab());
             switch (type)
             {
                 case roomType.type1:
