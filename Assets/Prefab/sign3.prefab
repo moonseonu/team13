@@ -37,7 +37,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -45, y: -62}
+  m_AnchoredPosition: {x: -39, y: -21.688}
   m_SizeDelta: {x: 40.8354, y: 43.3762}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2327689871930959381
@@ -109,7 +109,7 @@ GameObject:
   - component: {fileID: 8494907823304563885}
   - component: {fileID: 8116134509213195548}
   - component: {fileID: 7385271282673468104}
-  - component: {fileID: 6682427225973066219}
+  - component: {fileID: 4806993692503291857}
   m_Layer: 5
   m_Name: sign3
   m_TagString: Untagged
@@ -137,7 +137,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 22.4, y: -13.7}
-  m_SizeDelta: {x: 500, y: 500}
+  m_SizeDelta: {x: 250, y: 250}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8494907823304563885
 CanvasRenderer:
@@ -195,7 +195,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
---- !u!68 &6682427225973066219
+--- !u!68 &4806993692503291857
 EdgeCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -211,19 +211,17 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: 135.79395, y: 95.717865}
-  - {x: -140.50183, y: 105.53725}
-  - {x: -144.59348, y: 68.86049}
-  - {x: -58.67505, y: 71.94505}
-  - {x: 21.240723, y: -60.26671}
-  - {x: -22.392517, y: -182.83627}
-  - {x: -305.38184, y: -188.53117}
-  - {x: -293.50134, y: 287.76547}
-  - {x: 242.59735, y: 287.54285}
-  - {x: 251.26752, y: -127.07182}
-  - {x: 183.88928, y: -247.65712}
-  - {x: 96.88971, y: -169.70044}
-  - {x: 135.75354, y: 96.7583}
+  - {x: 37.801758, y: 42.89795}
+  - {x: 42.062347, y: -140.11288}
+  - {x: 155.51987, y: -146.23608}
+  - {x: 174.94766, y: 162.27821}
+  - {x: -174.07898, y: 166.16597}
+  - {x: -184.2873, y: -104.65861}
+  - {x: 4.031128, y: -106.8699}
+  - {x: 10.444153, y: 15.807358}
+  - {x: -74.919586, y: 19.845413}
+  - {x: -76.4733, y: 37.778442}
+  - {x: 35.73758, y: 41.36589}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
@@ -266,7 +264,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 183, y: -111}
+  m_AnchoredPosition: {x: 91, y: -62}
   m_SizeDelta: {x: 40.8354, y: 43.3762}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4166138989480775762

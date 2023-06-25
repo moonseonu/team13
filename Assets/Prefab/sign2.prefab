@@ -37,7 +37,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 153, y: 44.5}
+  m_AnchoredPosition: {x: 79.7, y: 21.688}
   m_SizeDelta: {x: 40.8354, y: 43.3762}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &9065182525115485443
@@ -135,7 +135,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -210, y: -21.688}
+  m_AnchoredPosition: {x: -104.58, y: -6.6}
   m_SizeDelta: {x: 40.8354, y: 43.3762}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &726279722653305657
@@ -234,7 +234,7 @@ GameObject:
   - component: {fileID: 4398291019621280727}
   - component: {fileID: 8033080404300765819}
   - component: {fileID: 2035029363838219168}
-  - component: {fileID: 7595787154596506176}
+  - component: {fileID: 2372150908458545880}
   m_Layer: 5
   m_Name: sign2
   m_TagString: Untagged
@@ -262,7 +262,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 500, y: 500}
+  m_SizeDelta: {x: 250, y: 250}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4398291019621280727
 CanvasRenderer:
@@ -320,7 +320,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
---- !u!68 &7595787154596506176
+--- !u!68 &2372150908458545880
 EdgeCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -336,24 +336,23 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: 192.70331, y: -26.931381}
-  - {x: 86.07703, y: -10.253052}
-  - {x: 78.94653, y: -148.5437}
-  - {x: -116.64578, y: -151.34436}
-  - {x: -183.39633, y: 286.11316}
-  - {x: 279.1297, y: 290.0359}
-  - {x: 285.3075, y: -273.73206}
-  - {x: -256.07864, y: -279.88385}
-  - {x: -289.09085, y: 69.83832}
-  - {x: -160.76624, y: 76.37521}
-  - {x: -140.1625, y: -167.60413}
-  - {x: 203.17255, y: -159.48184}
-  - {x: 181.33899, y: 169.08841}
-  - {x: -50.954224, y: 169.54868}
-  - {x: -54.6734, y: -51.993683}
-  - {x: -1.0112915, y: -50.569275}
-  - {x: 5.3901978, y: 98.77359}
-  - {x: 184.3357, y: 121.776596}
+  - {x: 95.37964, y: 86.479675}
+  - {x: -29.115265, y: 77.97656}
+  - {x: -25.809845, y: -22.70958}
+  - {x: 4.0479736, y: -28.743622}
+  - {x: -1.4924011, y: 66.094604}
+  - {x: 107.98544, y: 73.07117}
+  - {x: 111.63382, y: -12.192337}
+  - {x: 39.698975, y: -16.54213}
+  - {x: 42.385193, y: -80.11686}
+  - {x: -62.948486, y: -78.9442}
+  - {x: -78.379486, y: 63.326485}
+  - {x: -161.9053, y: 35.24765}
+  - {x: -137.61734, y: -162.7808}
+  - {x: 162.03629, y: -158.10703}
+  - {x: 160.0936, y: 140.70836}
+  - {x: -68.42587, y: 137.73099}
+  - {x: -63.41977, y: 15.97998}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
