@@ -34,7 +34,7 @@ public class LoadingSceneManager : MonoBehaviour
         AsyncOperation op = SceneManager.LoadSceneAsync(nextScene);
         op.allowSceneActivation = false;
         float timer = 0.0f;
-        while(!op.isDone)
+        /*while(!op.isDone)
         {
             yield return null;
             timer += Time.deltaTime;
@@ -42,7 +42,7 @@ public class LoadingSceneManager : MonoBehaviour
             if(op.progress < 0.9f)
             {
                 progressBar.fillAmount = Mathf.Lerp(progressBar.fillAmount, op.progress, timer);
-                if(progressBar.fillAmount >= op.progress)
+                if(progressBar.fillAmount == 1.0f)//>= op.progress)
                 {
                     timer = 0f;
                 }
@@ -53,10 +53,9 @@ public class LoadingSceneManager : MonoBehaviour
                 if(progressBar.fillAmount == 1.0f)
                 {
                     op.allowSceneActivation = true;
-                    yield return new WaitForSeconds(4.0f);
+                    yield break;//return new WaitForSeconds(4.0f);
                 }
             }
-<<<<<<< HEAD
             
                 
         }*/
@@ -90,8 +89,6 @@ public class LoadingSceneManager : MonoBehaviour
             //    }
             //}
 >>>>>>> Stashed changes
-=======
->>>>>>> parent of 74c5241 (로딩씬 작동)
         }
     }
 
