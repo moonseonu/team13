@@ -34,14 +34,14 @@ public class LoadingSceneManager : MonoBehaviour
         AsyncOperation op = SceneManager.LoadSceneAsync(nextScene);
         op.allowSceneActivation = false;
         float timer = 0.0f;
-        while(!op.isDone)
+        /*while(!op.isDone)
         {
             yield return null;
             timer += Time.deltaTime;
             if(op.progress < 0.9f)
             {
                 progressBar.fillAmount = Mathf.Lerp(progressBar.fillAmount, op.progress, timer);
-                if(progressBar.fillAmount >= op.progress)
+                if(progressBar.fillAmount == 1.0f)//>= op.progress)
                 {
                     timer = 0f;
                 }
@@ -52,8 +52,22 @@ public class LoadingSceneManager : MonoBehaviour
                 if(progressBar.fillAmount == 1.0f)
                 {
                     op.allowSceneActivation = true;
-                    yield return new WaitForSeconds(4.0f);
+                    yield break;//return new WaitForSeconds(4.0f);
                 }
+            }
+            
+                
+        }*/
+        while(true)
+        {
+            timer += Time.deltaTime;
+
+            if(timer >= 100.0f)
+            {
+                timer = 0.0f;
+                op.allowSceneActivation = true;
+                yield break;
+                
             }
         }
     }
