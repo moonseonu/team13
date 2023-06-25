@@ -14,7 +14,7 @@ public class LoadingSceneManager : MonoBehaviour
      * **********************************
      */
     public static string nextScene;
-    [SerializeField] Image progressBar;
+    //[SerializeField] Image progressBar;
 
     // Start is called before the first frame update
     private void Start()
@@ -38,6 +38,7 @@ public class LoadingSceneManager : MonoBehaviour
         {
             yield return null;
             timer += Time.deltaTime;
+<<<<<<< Updated upstream
             if(op.progress < 0.9f)
             {
                 progressBar.fillAmount = Mathf.Lerp(progressBar.fillAmount, op.progress, timer);
@@ -69,6 +70,25 @@ public class LoadingSceneManager : MonoBehaviour
                 yield break;
                 
             }
+=======
+            //if(op.progress < 0.9f)
+            //{
+            //    progressBar.fillAmount = Mathf.Lerp(progressBar.fillAmount, op.progress, timer);
+            //    if(progressBar.fillAmount >= op.progress)
+            //    {
+            //        timer = 0f;
+            //    }
+            //}
+            //else
+            //{
+            //    progressBar.fillAmount = Mathf.Lerp(progressBar.fillAmount, 1.0f, timer);
+            //    if(progressBar.fillAmount == 1.0f)
+            //    {
+            //        op.allowSceneActivation = true;
+            //        yield return new WaitForSeconds(4.0f);
+            //    }
+            //}
+>>>>>>> Stashed changes
         }
     }
 

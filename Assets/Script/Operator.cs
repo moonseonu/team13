@@ -17,7 +17,6 @@ public class Operator : Mapping
     private bool isminigameStart;
     public GameObject[] signType = new GameObject[4];
 
-
     private void Start()
     {
         isOperate = false;
@@ -34,17 +33,6 @@ public class Operator : Mapping
         if (gameObject == GameObject.FindWithTag("type3"))
         {
             type = roomType.type3;
-        }
-        for (int i = 0; i < 6; i++)
-        {
-            for (int j = 0; j < 3; j++)
-            {
-                if (this.gameObject.transform.position == room[i, j].transform.position)
-                {
-                    Map[i, j] = 0;
-                }
-                Debug.Log(Map[i, j]);
-            }
         }
     }
     void Update()
@@ -74,8 +62,8 @@ public class Operator : Mapping
                     //이쪽에 몹 이동에 관여시킬수 있는 함수 넣으면 될듯
                     break;
             }
-            Debug.Log(isOperate);
         }
+
         if (iscoolDown != 0)
         {
             iscoolDown -= Time.deltaTime;
@@ -94,5 +82,9 @@ public class Operator : Mapping
             if(EventSystem.current.IsPointerOverGameObject() == false)
                 target = hit.collider.gameObject;
         }
+    }
+
+    void CoolDown()
+    {
     }
 }
