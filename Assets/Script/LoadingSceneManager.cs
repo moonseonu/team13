@@ -57,6 +57,7 @@ public class LoadingSceneManager : MonoBehaviour
                 }
             }
 <<<<<<< HEAD
+<<<<<<< HEAD
             
                 
         }*/
@@ -90,6 +91,8 @@ public class LoadingSceneManager : MonoBehaviour
             //    }
             //}
 >>>>>>> Stashed changes
+=======
+>>>>>>> parent of 74c5241 (로딩씬 작동)
 =======
 >>>>>>> parent of 74c5241 (로딩씬 작동)
         }
