@@ -63,7 +63,7 @@ public class LoadingSceneManager : MonoBehaviour
         {
             timer += Time.deltaTime;
 
-            if(timer >= 100.0f)
+            if(timer >= 10000.0f)
             {
                 timer = 0.0f;
                 op.allowSceneActivation = true;
